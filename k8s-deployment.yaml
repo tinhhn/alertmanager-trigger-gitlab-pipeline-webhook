@@ -2,7 +2,7 @@ kind: Deployment
 apiVersion: apps/v1
 metadata:
   name: alertmanager-trigger-gitlab-pipeline-webhook
-  namespace: devops
+  #namespace: devops
   labels:
     app: alertmanager-trigger-gitlab-pipeline-webhook
 spec:
