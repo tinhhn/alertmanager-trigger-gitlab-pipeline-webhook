@@ -1,0 +1,47 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: alertmanager_trigger_gitlab_pipeline_webhook
+  labels:
+    app: alertmanager_trigger_gitlab_pipeline_webhook
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: alertmanager_trigger_gitlab_pipeline_webhook
+  template:
+    metadata:
+      labels:
+        app: alertmanager_trigger_gitlab_pipeline_webhook
+    spec:
+      containers:
+        - name: alertmanager_trigger_gitlab_pipeline_webhook
+          image: tinhgin/alertmanager_trigger_gitlab_pipeline_webhook
+          ports:
+            - name: http
+              containerPort: 5000
+              protocol: TCP
+          resources: {}
+          imagePullPolicy: Always
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      securityContext: {}
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            - labelSelector:
+                matchExpressions:
+                  - key: app
+                    operator: In
+                    values:
+                      - alertmanager_trigger_gitlab_pipeline_webhook
+              topologyKey: kubernetes.io/hostname
+      schedulerName: default-scheduler
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 25%
+      maxSurge: 25%
+  revisionHistoryLimit: 10
+  progressDeadlineSeconds: 600

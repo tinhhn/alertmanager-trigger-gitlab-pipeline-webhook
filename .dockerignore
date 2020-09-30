@@ -5,3 +5,4 @@ docker-compose.yml
 .idea/
 README.md
 .gitignore
+k8s-deployment.yaml
