@@ -22,7 +22,10 @@ spec:
             - name: http
               containerPort: 5000
               protocol: TCP
-          resources: {}
+          resources:
+            limits:
+              cpu: '100m'
+              memory: "128Mi"
           imagePullPolicy: Always
       restartPolicy: Always
       terminationGracePeriodSeconds: 30
