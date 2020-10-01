@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: alertmanager-trigger-gitlab-pipeline-webhook
-          image: tinhgin/alertmanager_trigger_gitlab_pipeline_webhook
+          image: tinhgin/alertmanager-trigger-gitlab-pipeline-webhook
           ports:
             - name: http
               containerPort: 5000
