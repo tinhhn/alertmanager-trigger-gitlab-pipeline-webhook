@@ -13,5 +13,5 @@ def trigger_gitlab_pipeline():
     trigger_pipeline = requests.post(trigger_url, data=trigger_payload)
     return (trigger_pipeline.content, trigger_pipeline.status_code, None)
 
-if __name__ == '__main__':
-    app.run(host='0.0.0.0',port=5000,debug=True, use_reloader=True)
+#if __name__ == '__main__':
+#    app.run(host='0.0.0.0',port=5000,debug=True, use_reloader=True)
