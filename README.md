@@ -1,4 +1,4 @@
-# alertmanager_trigger_gitlab_pipeline_webhook
+# alertmanager-trigger-gitlab-pipeline-webhook
 
 Alertmanager can not trigger gitlab pipeline directly, this webhook will help you out!
 
